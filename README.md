@@ -1,5 +1,5 @@
 Technology used:
-virtualenv- to keep a consist package version in our development as well as isolating foreign environment variables
+virtualenv- to keep a consist package version in our development as well as isolating foreign environment variables.
 
 Installation Guide for Unix-like system:
 
