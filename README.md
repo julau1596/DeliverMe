@@ -6,7 +6,7 @@ Installation Guide for Unix-like system:
 1. Be sure to have the latest python3, pip, and virtualenv. The link should provide all the instruction for both windows and unix-like systems. https://packaging.python.org/guides/installing-using-pip-and-virtualenv/
 
 2. Create a virtual environment
-```python
+```
 python3 -m virtualenv env
 ```
 
