@@ -1,63 +1,17 @@
+{% extends "deliverme/header.html" %}
 <!doctype html>
-<html lang="en">
+
   <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <title>Hello, world!</title>
+  	{% block title %}
+    	<title>Home</title>
+    {% endblock %}
   </head>
-  <body>
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-			<a class="navbar-brand" href="#">DeliverMe</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-				<div class="navbar-nav">
-					<a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-				</div>
-				<div class="navbar-nav">
-					<a data-toggle="modal" data-target="#myModal" class="nav-item nav-link active">Tutorial
-						<span class="sr-only">(current)</span>
-					</a>
-				</div>
-				<div class="modal fade" id="myModal" role="dialog">
-				<div class="modal-dialog">
-				<!-- Modal content-->
-				<div class="modal-content">
-				<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title">Modal Header</h4>
-				</div>
-				<div class="modal-body">
-				<p>Some text in the modal.</p>
-				</div>
-				<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-				</div>
-				</div>
-			</div>
 
-</div>
-			</div>
-			{% if user.is_authenticated %}
-        		<p>Hi {{ user.username }} !</p>  
-        		<a href="logout/" class="btn btn-inverse">Log Out</a>     
-    		{% else %}
-				<a href="login/" class="btn btn-inverse">Log In</a>
-				<a href="signup/" class="btn btn-inverse">Sign Up</a>
-			{% endif %}
-			<form class="form-inline">
-				<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-			</form>
-		</nav>
-		<div class="container">
+  <body>
+
+  	{% block content %}
+
+    <div class="container">
 			<div class="row">
 				<div class="col">
 					Going
@@ -75,9 +29,59 @@
 					Requesting
 				</div>
 			</div>
+			<a data-toggle="modal" data-target="#addmod">Add a new item:
+				<span class="sr-only">(current)</span>
+			</a>
 		</div>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+		<div class="modal fade" id="addmod" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-haeder">
+						<h5 class="modal-title" id="addmod">Add a new item</h5>
+						    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group">
+							    <label for="title-name" class="form-control-label">Title:</label>
+								<input type="text" class="form-control" id="title-name">
+							</div>
+							<div class="form-group">
+							    <label for="user-name" class="form-control-label">User:</label>
+								<input type="text" class="form-control" id="user-name">
+							</div>
+							<div class="form-group">
+							    <label for="message-text" class="form-control-label">Message:</label>
+								<textarea class="form-control" id="message-text"></textarea>
+							</div>
+							<div class="form-group">
+							    <label for="loc-name" class="form-control-label">Location:</label>
+								<input type="text" class="form-control" id="loc-name">
+							</div>
+							<div class="form-group">
+							    <label for="dest-name" class="form-control-label">Destination:</label>
+								<input type="text" class="form-control" id="dest-name">
+							</div>
+							<div class="form-group">
+							    <label for="time-name" class="form-control-label">Time:</label>
+								<input type="text" class="form-control" id="time-name">
+							</div>
+							<div class="form-group">
+							    <label for="request-name" class="form-control-label">Requester:</label>
+								<input type="text" class="form-control" id="request-name">
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Send message</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% endblock %}
 	</body>
 </html>
