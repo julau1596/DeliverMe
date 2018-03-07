@@ -2,7 +2,9 @@
 <html lang="en">
 
   <head>
-    <title>Hello, world!</title>
+    {% block title %}
+      <title>Login</title>
+    {% endblock %}
   </head>
 
   <body>
@@ -23,7 +25,7 @@
               <input type="checkbox" value="remember-me"> Remember me
             </label>
           </div>
-          
+
           <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         </form>
     {% endblock %}
