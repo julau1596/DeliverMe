@@ -43,6 +43,18 @@
 				</div>
 				</div>
 			</div>
+
+  
+</div>
+			</div>
+			{% if user.is_authenticated %}
+        		<p>Hi {{ user.username }} !</p>  
+        		<a href="logout/" class="btn btn-inverse">Log Out</a>     
+    		{% else %}
+				<a href="login/" class="btn btn-inverse">Log In</a>
+				<a href="signup/" class="btn btn-inverse">Sign Up</a>
+			{% endif %}
+
 			<form class="form-inline">
 				<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
