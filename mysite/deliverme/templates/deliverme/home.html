@@ -16,10 +16,12 @@
 				<div class="col">
 					Requesters
                     {% for post in post_list %}
-                        <h5>{{ post.user }}</h5>
-                        <h5>{{ post.title }}</h5>
-                        <h5>Location: {{ post.location }}</h5> <!--Location/Destination not implemented into model yet! -->
-                        <h5>{{ post.time|date:"m-d-Y" }}</h5>
+                        {% if post.requester == True %}
+                            <h5>{{ post.user }}</h5>
+                            <h5>{{ post.title }}</h5>
+                            <h5>Location: {{ post.location }}</h5> <!--Location/Destination not implemented into model yet! -->
+                            <h5>{{ post.time|date:"m-d-Y" }}</h5>
+                        {% endif %}
                     </br>
                     {% endfor %}
 				</div>
@@ -35,12 +37,14 @@
 				<div class="col">
 					Deliverers
                     {% for post in post_list %}
-                        <h5>{{ post.user }}</h5>
-                        <h5>{{ post.title }}</h5>
-                        <h5>Location: {{ post.location }}</h5> <!--Location/Destination not implemented into model yet! -->
-                        <h5>Destination: {{ post.destination }}</h5>
-                        <h5>{{ post.time|date:"m-d-Y" }}</h5>
-                        </br>
+                        {% if post.requester == False %}
+                            <h5>{{ post.user }}</h5>
+                            <h5>{{ post.title }}</h5>
+                            <h5>Location: {{ post.location }}</h5> <!--Location/Destination not implemented into model yet! -->
+                            <h5>Destination: {{ post.destination }}</h5>
+                            <h5>{{ post.time|date:"m-d-Y" }}</h5>
+                        {% endif %}
+                            </br>
                     {% endfor %}
 				</div>
 			</div>
