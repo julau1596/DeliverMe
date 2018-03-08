@@ -12,6 +12,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 
     <style type="text/css">
@@ -23,62 +24,68 @@
 </head>
 
 <body class="body" style="background-color:white">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">DeliverMe</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                </div>
-                <div class="navbar-nav">
-                    <a data-toggle="modal" data-target="#myModal" class="nav-item nav-link active">Tutorial 
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </div>
-                <div class="modal fade" id="myModal" role="dialog">
-                <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                <div class="modal-header">
-                <h4 class="modal-title">Tutorial</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <p>Some text in the modal.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-                </div>
-                </div>
-                </div>
-            </div>
-
-  
-    </div>
-            </div>
-            {% if user.is_authenticated %}
-                <p>Hi {{ user.username }} !</p>  
-                <a href="logout/" class="btn btn-inverse">Log Out</a>     
-            {% else %}
-                <a href="login/" class="btn btn-inverse">Log In</a>
-                <a href="signup/" class="btn btn-inverse">Sign Up</a>
-            {% endif %}
-
-            <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-
-        </nav>    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="/">DeliverMe</a>
+		</div
+		<div class="container-fluid">
+			<ul class="nav navbar-nav">
+				<li><a href="/">Home</a></li>
+				<li>
+					<a data-toggle="modal" data-target="#myModal" class="nav-item nav-link active">Tutorial 
+						<span class="sr-only">(current)</span>
+					</a>
+				</li>
+					<div class="modal fade" id="myModal" role="dialog">
+						<div class="modal-dialog">
+							<!-- Modal content-->
+							<br><br><br>
+							<div class="modal-content">
+								<div class="modal-header">
+									<h4 class="modal-title">Tutorial</h4>
+										<button type="button" class="close" data-dismiss="modal">&times;</button>
+								</div>
+								<div class="modal-body">
+									<p>Some text in the modal.</p>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								</div>
+							</div>
+						</div>
+					</div>
+			</ul>
+			<ul class="navbar-nav ml-auto">
+				{% if user.is_authenticated %}
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<span class="glyphicon glyphicon-user"></span> {{ user.username }} 
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="#">Settings</a>
+						</div>
+					</li>
+				<li>
+					<a href="logout/" class="btn btn-inverse"><span class="glyphicon glyphicon-log-out"></span> Log Out</a>     
+				</li>
+				{% else %}
+				<li>
+					<a href="login/" class="btn btn-inverse"><span class="glyphicon glyphicon-log-in"></span> Log In</a>
+				</li>
+				<li>
+					<a href="signup/" class="btn btn-inverse"><span class="glyphicon glyphicon-log-in"></span> Sign Up</a>
+				</li>
+				{% endif %}
+			</ul>
+		</div>
+	</nav>
     <div id = "contents">
         {% block content %}
         {% endblock %}
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		
     </div>
 </body>
 </html>
