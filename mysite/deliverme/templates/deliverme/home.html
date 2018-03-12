@@ -21,8 +21,8 @@
                                 <h5>{{ post.title }}</h5>
                                 <!--<h5>Location: {{ post.location }}</h5> Location/Destination not implemented into model yet! -->
                                 <h5>{{ post.time|date:"m-d-Y" }}</h5>
+                                </br>
                             {% endif %}
-                        </br>
                         {% endfor %}
 					</div>
 				</div>
@@ -93,11 +93,10 @@
                         {% if post.requester == False %}
                             <h5>{{ post.user }}</h5>
                             <h5>{{ post.title }}</h5>
-                            <!--<h5>Location: {{ post.location }}</h5> Location/Destination not implemented into model yet!
-                            <h5>Destination: {{ post.destination }}</h5> -->
+                            <!--<h5>Location: {{ post.location }}</h5> Location/Destination not implemented into model yet! -->
                             <h5>{{ post.time|date:"m-d-Y" }}</h5>
-                        {% endif %}
                             </br>
+                        {% endif %}
                     {% endfor %}
 				</div>
 
