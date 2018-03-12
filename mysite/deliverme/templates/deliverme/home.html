@@ -14,7 +14,7 @@
 			<div class="row justify-content-between">
 				<div class="col" style="padding-left:50px;" >
 					<div class="">
-                        Requesters
+                        <p class="text-center"><b>Requesters</b></p>
                         {% for post in post_list %}
                             {% if post.requester == True %}
                                 <h5>{{ post.user }}</h5>
@@ -88,7 +88,7 @@
 				</div>
 			</div>
 				<div class="col" style="padding-left:20px;">
-                    Deliverers
+                    <p class="text-center"><b>Deliverers</b></p>
                     {% for post in post_list %}
                         {% if post.requester == False %}
                             <h5>{{ post.user }}</h5>
