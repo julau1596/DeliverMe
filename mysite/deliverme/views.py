@@ -12,12 +12,17 @@ from deliverme.models import Post
 def index(request):
     post_list = Post.objects.all().order_by("-time")[:50]
     context = {'post_list': post_list}
+    if request.method == 'POST':
+        form = NameForm(request.POST)
+        if form.is_valid():
+            title = form.cleaned_data['subject']
+            context = {'post_list': post_list, 'title': title}
+   
+   
     return render(request, 'deliverme/home.html', context)
 
 def home(request):
     return redirect('/')
-
-
 
 def signup(request):
     if request.method == 'POST':
@@ -32,3 +37,7 @@ def signup(request):
     else:
         form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})
+
+def requestPost(request):
+    title = request.POST['title']
+    print(title) 

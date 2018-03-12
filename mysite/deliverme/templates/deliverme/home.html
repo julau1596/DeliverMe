@@ -15,6 +15,7 @@
 			<div class="row">
 				<div class="col">
 					Requesters
+					<h1>{{titile}}</h1>
 					<table border=".5">
 						<tr>
                     		<th>User</th>
@@ -25,8 +26,6 @@
                         </tr>
                     {% for post in post_list %}
                         {% if post.requester == True %}
-                
-                        	
                     	<tr>
                     		<td>{{ post.user }} </td>
                     		<td>{{ post.title }} </td>
@@ -82,40 +81,44 @@
 					</div>
 					<div class="modal-body">
 						<form>
+
 							<div class="form-group">
 							    <label for="title-name" class="form-control-label">Title:</label>
-								<input type="text" class="form-control" id="title-name">
+								<input type="text" class="form-control" name="title" id="title-name">
 							</div>
 							<div class="form-group">
 							    <label for="user-name" class="form-control-label">User:</label>
-								<input type="text" class="form-control" id="user-name">
+								<input type="text" class="form-control" name="user" id="user-name">
 							</div>
 							<div class="form-group">
 							    <label for="message-text" class="form-control-label">Message:</label>
-								<textarea class="form-control" id="message-text"></textarea>
+								<textarea class="form-control" name="message" id="message-text"></textarea>
 							</div>
 							<div class="form-group">
 							    <label for="loc-name" class="form-control-label">Location:</label>
-								<input type="text" class="form-control" id="loc-name">
+								<input type="text" class="form-control" name="location" id="loc-name">
 							</div>
 							<div class="form-group">
 							    <label for="dest-name" class="form-control-label">Destination:</label>
-								<input type="text" class="form-control" id="dest-name">
+								<input type="text" class="form-control" name="dest" id="dest-name">
 							</div>
 							<div class="form-group">
 							    <label for="time-name" class="form-control-label">Time:</label>
-								<input type="text" class="form-control" id="time-name">
+								<input type="date" class="form-control" name="time" id="time-name">
 							</div>
 							<div class="form-group">
 							    <label for="request-name" class="form-control-label">Requester:</label>
-								<input type="text" class="form-control" id="request-name">
+								<input type="text" class="form-control" name="requester" id="request-name">
+							</div>
+							<div class="form-group">
+								<input type="submit" class="form-control" >
 							</div>
 						</form>
 					</div>
-					<div class="modal-footer">
+					<!-- <div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 						<button type="button" class="btn btn-primary">Send message</button>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
