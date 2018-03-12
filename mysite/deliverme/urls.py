@@ -14,5 +14,6 @@ urlpatterns = [
     url(r'^logout/$', auth_views.logout, {'next_page': '/'}, name='logout'),
     url(r'^login/home/$', views.home),
     url(r'^signup/$', views.signup, name='signup'),
+    url(r'^setting/$', views.setting, name='setting')
 
 ]
