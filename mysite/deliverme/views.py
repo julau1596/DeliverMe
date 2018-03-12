@@ -7,8 +7,12 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 
+from deliverme.models import Post
+
 def index(request):
-    return render(request, 'deliverme/home.html')
+    post_list = Post.objects.all().order_by("-time")[:50]
+    context = {'post_list': post_list}
+    return render(request, 'deliverme/home.html', context)
 
 def home(request):
     return redirect('/')
