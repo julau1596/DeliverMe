@@ -15,12 +15,30 @@
 			<div class="row">
 				<div class="col">
 					Requesters
+					<table border=".5">
+						<tr>
+                    		<th>User</th>
+                    		<th>Title</th>
+                    		<th>Description</th>
+                    		<th>Location</th>
+                    		<th>Posted Date</th>
+                        </tr>
                     {% for post in post_list %}
                         {% if post.requester == True %}
-                            <h5>{{ post.user }}</h5>
-                            <h5>{{ post.title }}</h5>
-                            <h5>Location: {{ post.location }}</h5> <!--Location/Destination not implemented into model yet! -->
-                            <h5>{{ post.time|date:"m-d-Y" }}</h5>
+                
+                        	
+                    	<tr>
+                    		<td>{{ post.user }} </td>
+                    		<td>{{ post.title }} </td>
+                    		<td>{{ post.message }} </td>
+                    		<td>Location: {{ post.location }} </td>
+                    		<td>{{ post.time|date:"m-d-Y" }} </td>
+                    	</tr>
+                        <!-- <h5></h5>
+                        <h5></h5>
+                        <h5></h5> Location/Destination not implemented into model yet! 
+                        <h5></h5> -->
+                    </table>
                         {% endif %}
                     </br>
                     {% endfor %}
