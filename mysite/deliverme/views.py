@@ -28,6 +28,12 @@ def home(request):
 def setting(request):
     return render(request, 'deliverme/setting.html', None)
 
+def chatlog(request):
+    return render(request, 'deliverme/chatlog.html', None)
+
+def wallet(request):
+    return render(request, 'deliverme/wallet.html', None)
+
 def signup(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -41,3 +47,4 @@ def signup(request):
     else:
         form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})
+
