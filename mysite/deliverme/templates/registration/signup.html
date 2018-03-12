@@ -7,10 +7,12 @@
   </head>
 
 {% block content %}
-  <h2>Sign up</h2>
-  <form method="post">
+<div class="container" style="">	
+  <h2 align="center">Sign up</h2>
+  <form method="post" style="padding-left:170px">
     {% csrf_token %}
     {{ form.as_p }}
-    <button class="btn btn-lg btn-primary btn-block"" submit">Sign up</button>
+    <button class="btn btn-lg btn-primary" "submit">Sign up</button>
   </form>
+ </div>
 {% endblock %}
