@@ -8,7 +8,21 @@
   </head>
 
   <body>
+
   	{% block content %}
+<<<<<<< HEAD
+		<div class="row">
+			<div class="col">
+				Going
+				{% for post in post_list %}
+                    <h5>{{ post.user }}</h5>
+                    <h5>{{ post.title }}</h5>
+                    <h5>Location: {{ post.location }}</h5> <!--Location/Destination not implemented into model yet! -->
+                    <h5>Destination: {{ post.destination }}</h5>
+                    <h5>{{ post.time|date:"m-d-Y" }}</h5>
+                    </br>
+                {% endfor %}
+=======
 
     <div class="container">
 			<div class="row">
@@ -30,7 +44,30 @@
 						src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAjIs-3O8NfJywAyNXhMprz0VbX6kq7Feg
 						&q=Santa Cruz,SC" allowfullscreen>
 					</iframe>
-					<a data-toggle="modal" data-target="#addmod"><button>Add a new item:</button>
+				</div>
+				<div class="col">
+					Deliverers
+                    {% for post in post_list %}
+                        <h5>{{ post.user }}</h5>
+                        <h5>{{ post.title }}</h5>
+                        <h5>Location: {{ post.location }}</h5> <!--Location/Destination not implemented into model yet! -->
+                        <h5>Destination: {{ post.destination }}</h5>
+                        <h5>{{ post.time|date:"m-d-Y" }}</h5>
+                        </br>
+                    {% endfor %}
+				</div>
+>>>>>>> backend
+			</div>
+			<div class="container">
+			<div class="col">
+				<iframe
+					width="600"
+					height="450"
+					frameborder="0" style="border:0"
+					src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAjIs-3O8NfJywAyNXhMprz0VbX6kq7Feg
+					&q=Santa Cruz,SC" allowfullscreen>
+				</iframe>
+				<a data-toggle="modal" data-target="#addmod"><button>Add a new item:</button>
 					<span class="sr-only">(current)</span>
 				</a>
 			</div>
@@ -83,17 +120,20 @@
 					</div>
 				</div>
 			</div>
-				<div class="col">
-					Deliverers
-                    {% for post in post_list %}
+		</div>
+		<div class="col">
+			Deliverers
+                {% for post in post_list %}
+					{% if post.requester == False %}
                         <h5>{{ post.user }}</h5>
                         <h5>{{ post.title }}</h5>
                         <h5>Location: {{ post.location }}</h5> <!--Location/Destination not implemented into model yet! -->
                         <h5>Destination: {{ post.destination }}</h5>
                         <h5>{{ post.time|date:"m-d-Y" }}</h5>
-                        </br>
-                    {% endfor %}
-				</div>
+                    {% endif %}
+                            </br>
+                {% endfor %}
+		</div>
 	</div>
 		{% endblock %}
 	</body>
