@@ -11,8 +11,9 @@
   	{% block content %}
 
     <div class="container">
-			<div class="row">
-				<div class="col">
+			<div class="row justify-content-between">
+				<div class="col" >
+					<div class=>
 					Requesters
                     {% for post in post_list %}
                         <h5>{{ post.user }}</h5>
@@ -21,8 +22,9 @@
                         <h5>{{ post.time|date:"m-d-Y" }}</h5>
                     </br>
                     {% endfor %}
+					</div>
 				</div>
-				<div class="col">
+			<div class="col">
 					<iframe
 						width="600"
 						height="450"
