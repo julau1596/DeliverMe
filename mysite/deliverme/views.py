@@ -25,6 +25,8 @@ def home(request):
     return redirect('/')
 
 
+def setting(request):
+    return render(request, 'deliverme/setting.html', None)
 
 def signup(request):
     if request.method == 'POST':
