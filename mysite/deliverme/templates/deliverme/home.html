@@ -17,11 +17,13 @@
                         <p class="text-center"><b>Requesters</b></p>
                         {% for post in post_list %}
                             {% if post.requester == True %}
+                            <div class="box" style="border: 1px solid black;">
                                 <h5>{{ post.user }}</h5>
                                 <h5>{{ post.title }}</h5>
                                 <!--<h5>Location: {{ post.location }}</h5> Location/Destination not implemented into model yet! -->
                                 <h5>{{ post.time|date:"m-d-Y" }}</h5>
                                 </br>
+                            </div>
                             {% endif %}
                         {% endfor %}
 					</div>
@@ -91,11 +93,13 @@
                     <p class="text-center"><b>Deliverers</b></p>
                     {% for post in post_list %}
                         {% if post.requester == False %}
+                        <div class="box" style="border: 1px solid black;">
                             <h5>{{ post.user }}</h5>
                             <h5>{{ post.title }}</h5>
                             <!--<h5>Location: {{ post.location }}</h5> Location/Destination not implemented into model yet! -->
                             <h5>{{ post.time|date:"m-d-Y" }}</h5>
                             </br>
+                        </div>
                         {% endif %}
                     {% endfor %}
 				</div>
