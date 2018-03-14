@@ -5,22 +5,20 @@
   	{% block title %}
     	<title>Home</title>
     {% endblock %}
-	{% load staticfiles %}
-	<link rel='stylesheet' href="{% static 'css/test.css' %}" type='text/css'/> 
   </head>
 
   <body>
   	{% block content %}
 
 
-			<div class="row justify-content-between">
-				<div class="col" style="overflow:hidden;border-radius: 25px; border: 1px solid ; width:430px; background-color:#4db8ff;">
+			<div class="row justify-content-between;">
+				<div class="col" style="border-radius: 25px; border: 1px solid; width:430px; background-color:#343a40;">
 					<div class="box">
-                        <p class="text-center"><b>Requesters</b></p>
+                        <p class="text-center" style="color:#bdfffd; font-size:24px;"><b>Requesters</b></p>
                         {% for post in post_list %}
-													<br>
+						
                             {% if post.requester == True %}
-                            <div class="box" style="border-radius: 25px; border: 1px solid ; width:430px; background-color:white; padding-left:30px;">
+                            <div class="box" style="color:#343a40; border-radius: 25px; border: 1px solid ; width:430px; background-color:#bdfffd; padding-left:30px;">
                                 <h5>{{ post.user }}</h5>
                                 <h5>{{ post.title }}</h5>
                                 <!--<h5>Location: {{ post.location }}</h5> Location/Destination not implemented into model yet! -->
@@ -30,15 +28,15 @@
                         {% endfor %}
 					</div>
 				</div>
-			<div class="col">
-					<iframe
-						width="600"
-						height="450"
-						frameborder="0" style="border:0"
-						src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAjIs-3O8NfJywAyNXhMprz0VbX6kq7Feg
-						&q=Santa Cruz,SC" allowfullscreen>
-					</iframe>
-					<a data-toggle="modal" data-target="#addmod"><button>Add a new item:</button>
+			<div class="col" style="background-color:#343a40;border-radius: 25px; padding-top:50px">
+				<iframe
+					width="600"
+					height="450"
+					frameborder="0" style="border:0"
+					src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAjIs-3O8NfJywAyNXhMprz0VbX6kq7Feg
+					&q=Santa Cruz,SC" allowfullscreen>
+				</iframe>
+				<a data-toggle="modal" data-target="#addmod"><button style="color:#343a40; border-radius: 25px; background-color:#bdfffd;">Add a new item:</button>
 					<span class="sr-only">(current)</span>
 				</a>
 			</div>
@@ -90,13 +88,13 @@
 						</div>
 					</div>
 				</div>
-			</div>
-				<div class="col" style="overflow:hidden;border-radius: 25px; border: 1px solid; background-color:#4db8ff;">
-                    <p class="text-center"><b>Deliverers</b></p>
+			</div> 
+				<div class="col" style="overflow:hidden;border-radius: 25px; border: 1px solid; background-color:#343a40; height:700px;">
+                    <p class="text-center" style="color:#bdfffd; font-size:24px;"><b>Deliverers</b></p>
                     {% for post in post_list %}
                         {% if post.requester == False %}
-						<br>
-                        <div class="box" style="border-radius: 25px; border: 1px solid ; width:430px; background-color:white; padding-left:30px;">
+				
+                        <div class="box" style="color:#343a40; border-radius: 25px; border: 1px solid ; width:430px; background-color:#bdfffd; padding-left:30px;">
                             <h5>{{ post.user }}</h5>
                             <h5>{{ post.title }}</h5>
                             <!--<h5>Location: {{ post.location }}</h5> Location/Destination not implemented into model yet! -->
@@ -104,6 +102,19 @@
                         </div>
                         {% endif %}
                     {% endfor %}
+					<br><br>
+					<div>
+					<ul style="display:block; list-style-type: none; float:right; padding:10px;  background-color:#bdfffd; border-radius:10px; ">
+					<li style="border-top-radius:25px; color:#343a40; background-color:#bdfffd; border: 0px solid; width:250px; padding-left:10px">Chat</li>
+					<li style="color:#343a40; background-color:white; border: 0px solid; width:250px; padding-left:10px">Sonic: Hi!</li>
+					<li style="color:#343a40; background-color:white; border: 0px solid; width:250px; padding-left:10px">Shadow: I dont like you!</li>
+					<li style="color:#343a40; background-color:white; border: 0px solid; width:250px; padding-left:10px">Sonic: But why?</li>
+					<li style="color:#343a40; background-color:white; border: 0px solid; width:250px; padding-left:10px">Shadow: You go too fast</li>
+					<li style="color:#343a40; background-color:white; border: 0px solid; width:250px; padding-left:10px">Sonic: I need to for the deliveries</li>
+					<li style="color:#343a40; background-color:white; border: 0px solid; width:250px; padding-left:10px">Sonic: Because it needs to be on the way</li>
+					<li style="color:#343a40; background-color:white; border-top: 1px solid; width:250px; padding-left:10px">Enter messaage here:<br><br><br></li>
+					</ul>
+				</div>
 				</div>
 
 		{% endblock %}
