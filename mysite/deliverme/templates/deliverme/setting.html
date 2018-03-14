@@ -7,21 +7,31 @@
   </head>
 
 {% block content %}
-<img src="http://i0.kym-cdn.com/photos/images/original/001/337/786/426.png" alt="Smiley face" height="250px" width="250px">
-<p>
-    Username: {{ user.username }} <br>
-    Full Name: {{ user.first_name }} {{ user.last_name }}<br>
+<center>
 
-    Email: {{ user.email }}    <br>
-    Phone: {{ user.phone_number }}    <br>
-    
-    <br><br>
-    Last Login:{{user.last_login}} <br>
-    Date Joined: {{user.date_joined}} <br>
+<div style="border:0px;border-top-right-radius: 25px; border-top-left-radius: 25px; background: #b2b9c4;  padding:20px; width:40%;  ">
+    <img style="border:0px;background: white; border-radius: 50%; width: 300px; height: 300px;" src="http://i0.kym-cdn.com/photos/images/original/001/337/786/426.png" alt="Smiley face" height="250px" width="250px">
+</div>
+<div style="border:0px; background-color:#343a40;  width:40%;">
 
-    
-</p>
+    <div style="border:0px;border-bottom-right-radius: 25px; border-bottom-left-radius: 25px; background: #bdfffd;  padding:20px; ">
+        <table> <th>
+            Username: {{ user.username }} <br>
+            Full Name: {{ user.first_name }} {{ user.last_name }}<br>
 
+            Email: {{ user.email }}    <br>
+            Phone: {{ user.phone_number }} 510-123-4567   <br>
+            
+            <br>
+            Date Joined: {{user.date_joined}} <br>
+        </th></table>
+        
+        <br><br>
+        <button>Edit Info</button>
+    </div>
+</div>    
+
+</center>  
 
 
 
