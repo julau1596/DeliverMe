@@ -10,21 +10,25 @@
   <body>
   	{% block content %}
 
-    <div class="container">
-			<div class="row">
-				<div class="col">
-                    Requesters
-                    {% for post in post_list %}
-                        {% if post.requester == True %}
-                            <h5>{{ post.user }}</h5>
-                            <h5>{{ post.title }}</h5>
-                            <h5>Location: {{ post.location }}</h5> <!--Location/Destination not implemented into model yet! -->
-                            <h5>{{ post.time|date:"m-d-Y" }}</h5>
-                        {% endif %}
-                    </br>
-                    {% endfor %}
+
+			<div class="row justify-content-between">
+				<div class="col" style="padding-left:50px;" >
+					<div class="">
+                        <p class="text-center"><b>Requesters</b></p>
+                        {% for post in post_list %}
+                            {% if post.requester == True %}
+                            <div class="box" style="border: 1px solid black;">
+                                <h5>{{ post.user }}</h5>
+                                <h5>{{ post.title }}</h5>
+                                <!--<h5>Location: {{ post.location }}</h5> Location/Destination not implemented into model yet! -->
+                                <h5>{{ post.time|date:"m-d-Y" }}</h5>
+                                </br>
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+					</div>
 				</div>
-				<div class="col">
+			<div class="col">
 					<iframe
 						width="600"
 						height="450"
@@ -85,20 +89,21 @@
 					</div>
 				</div>
 			</div>
-				<div class="col">
-                    Deliverers
+				<div class="col" style="padding-left:20px;">
+                    <p class="text-center"><b>Deliverers</b></p>
                     {% for post in post_list %}
                         {% if post.requester == False %}
+                        <div class="box" style="border: 1px solid black;">
                             <h5>{{ post.user }}</h5>
                             <h5>{{ post.title }}</h5>
-                            <h5>Location: {{ post.location }}</h5> <!--Location/Destination not implemented into model yet! -->
-                            <h5>Destination: {{ post.destination }}</h5>
+                            <!--<h5>Location: {{ post.location }}</h5> Location/Destination not implemented into model yet! -->
                             <h5>{{ post.time|date:"m-d-Y" }}</h5>
-                        {% endif %}
                             </br>
+                        </div>
+                        {% endif %}
                     {% endfor %}
 				</div>
-	</div>
+
 		{% endblock %}
 	</body>
 </html>
