@@ -51,10 +51,12 @@
 								</button>
 						</div>
 						<div class="modal-body">
-							<form>
+							<form action="/new/" method="POST">
+								{% csrf_token %} 
+
 								<div class="form-group">
 									<label for="title-name" class="form-control-label">Title:</label>
-									<input type="text" class="form-control" id="title-name">
+									<input type="text" name="title"  class="form-control" id="title-name">
 								</div>
 								<!--<div class="form-group">
 									<label for="user-name" class="form-control-label">User:</label>
@@ -70,7 +72,7 @@
 								</div>-->
 								<div class="form-group">
 									<label for="dest-name" class="form-control-label">Destination:</label>
-									<input type="text" class="form-control" id="dest-name">
+									<input type="text"  name="dest"  class="form-control" id="dest-name">
 								</div>
 								<!--<div class="form-group">
 									<label for="time-name" class="form-control-label">Time:</label>
@@ -78,14 +80,17 @@
 								</div>-->
 								<div class="form-group">
 									<label for="request-name" class="form-control-label">Requester:</label>
-									<input type="checkbox" class="form-control" id="request-name">
+									<input type="checkbox" name="requester" class="form-control" id="request-name">
+								</div>
+								<div class="modal-footer">
+						
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+									<button type="Submit" class="btn btn-primary">Make request</button>
+						
 								</div>
 							</form>
 						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							<button type="button" class="btn btn-primary">Make request</button>
-						</div>
+						
 					</div>
 				</div>
 			</div>

@@ -17,6 +17,5 @@ urlpatterns = [
     url(r'^setting/$', views.setting, name='setting'),
     url(r'^chatlog/$', views.chatlog, name='chatlog'),
     url(r'^wallet/$', views.wallet, name='wallet'),
-
-
+    url(r'^new/$', views.new, name = 'new'),
 ]
