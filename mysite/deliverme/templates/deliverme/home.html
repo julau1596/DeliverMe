@@ -15,7 +15,7 @@
 
 
 <div>
-    <p class="text-center" style="color:#bdfffd; font-size:24px;"><b>Requesters</b></p>
+    <p class="" style="padding-left:20px;color:#bdfffd; font-size:24px;"><b>Requesters</b></p>
 				<div class="col" style="border-radius: 25px; border: 1px solid;overflow-x:hidden;overflow-y:scroll; height:650px;width:99%; background-color:#343a40;">
 					<div class="box">
 
@@ -23,10 +23,10 @@
 
                             {% if post.requester == True %}
                             <div class="box" style="color:#343a40; border-radius: 25px; border: 1px solid ; width:430px; background-color:#bdfffd; padding-left:30px;">
-                                <h5>{{ post.user }}</h5>
-                                <h5>{{ post.title }}</h5>
+                                <h5><b>Name: </b>{{ post.user }}</h5>
+                                <h5><b>Description: </b>{{ post.title }}</h5>
                                 <!--<h5>Location: {{ post.location }}</h5> Location/Destination not implemented into model yet! -->
-                                <h5>{{ post.time|date:"m-d-Y" }}</h5>
+                                <h5><b>Posted: </b>{{ post.time|date:"m-d-Y" }}</h5>
                             </div>
                             {% endif %}
                         {% endfor %}
@@ -104,9 +104,9 @@
 			</div>
 
 <div>
-                <p class="text-center" style="color:#bdfffd; font-size:24px;"><b>Deliverers</b></p>
+                <p class="" style="color:#bdfffd; font-size:24px;"><b>Deliverers</b></p>
 
-            				<div class="col" style="right:20px;border-radius: 25px; border: 1px solid;overflow-x:hidden;overflow-y:scroll;width:450px; height:650px; background-color:#343a40;">
+            				<div class="col" style="right:15px;border-radius: 25px; border: 1px solid;overflow-x:hidden;overflow-y:scroll;width:450px; height:650px; background-color:#343a40;">
 
                     			<div class="box">
 
@@ -114,10 +114,10 @@
 
                                         {% if post.requester == False %}
                                         <div class="box" style="color:#343a40; border-radius: 25px; border: 1px solid ; background-color:#bdfffd; padding-left:20px;">
-                                            <h5>{{ post.user }}</h5>
-                                            <h5>{{ post.title }}</h5>
+                                            <h5><b>Name: </b>{{ post.user }}</h5>
+                                            <h5><b>Description: </b>{{ post.title }}</h5>
                                             <!--<h5>Location: {{ post.location }}</h5> Location/Destination not implemented into model yet! -->
-                                            <h5>{{ post.time|date:"m-d-Y" }}</h5>
+                                            <h5><b>Posted: </b>{{ post.time|date:"m-d-Y" }}</h5>
                                         </div>
                                         {% endif %}
                                     {% endfor %}
