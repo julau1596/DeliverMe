@@ -12,7 +12,7 @@
 
 
 			<div class="row justify-content-between;">
-				<div class="col" style="border-radius: 25px; border: 1px solid; width:430px; background-color:#343a40;">
+				<div class="col" style="overflow-y: scroll;border-radius: 25px; border: 1px solid; width:430px; background-color:#343a40;">
 					<div class="box">
                         <p class="text-center" style="color:#bdfffd; font-size:24px;"><b>Requesters</b></p>
                         {% for post in post_list %}
@@ -102,19 +102,7 @@
                         </div>
                         {% endif %}
                     {% endfor %}
-					<br><br>
-					<div>
-					<ul style="display:block; list-style-type: none; float:right; padding:10px;  background-color:#bdfffd; border-radius:10px; ">
-					<li style="border-top-radius:25px; color:#343a40; background-color:#bdfffd; border: 0px solid; width:250px; padding-left:10px">Chat</li>
-					<li style="color:#343a40; background-color:white; border: 0px solid; width:250px; padding-left:10px">Sonic: Hi!</li>
-					<li style="color:#343a40; background-color:white; border: 0px solid; width:250px; padding-left:10px">Shadow: I dont like you!</li>
-					<li style="color:#343a40; background-color:white; border: 0px solid; width:250px; padding-left:10px">Sonic: But why?</li>
-					<li style="color:#343a40; background-color:white; border: 0px solid; width:250px; padding-left:10px">Shadow: You go too fast</li>
-					<li style="color:#343a40; background-color:white; border: 0px solid; width:250px; padding-left:10px">Sonic: I need to for the deliveries</li>
-					<li style="color:#343a40; background-color:white; border: 0px solid; width:250px; padding-left:10px">Sonic: Because it needs to be on the way</li>
-					<li style="color:#343a40; background-color:white; border-top: 1px solid; width:250px; padding-left:10px">Enter message here:<br><br><br></li>
-					</ul>
-				</div>
+
 				</div>
 
 		{% endblock %}
