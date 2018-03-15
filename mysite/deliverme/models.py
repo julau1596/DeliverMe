@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
+from django.contrib.auth.models import AbstractUser
+
 
 class Post(models.Model):
     title = models.TextField()
@@ -12,3 +14,7 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class User(AbstractUser):
+    phone_number = models.CharField( max_length=17)

@@ -30,6 +30,8 @@ ALLOWED_HOSTS = []
 LOGIN_REDIRECT_URL = 'home/'
 # Application definition
 
+AUTH_USER_MODEL = 'deliverme.User'
+
 INSTALLED_APPS = [
     'deliverme',
     'django.contrib.admin',
