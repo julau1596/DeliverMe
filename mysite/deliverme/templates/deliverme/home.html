@@ -11,8 +11,12 @@
   	{% block content %}
 
 
-			<div class="row justify-content-between;">
-				<div class="col" style="overflow-y: scroll;border-radius: 25px; border: 1px solid; width:430px; background-color:#343a40;">
+			<div class="row justify-content-between;" style="">
+
+
+
+
+				<div class="col" style="height: 100%;border-radius: 25px; border: 1px solid; width:430px; background-color:#343a40;">
 					<div class="box">
                         <p class="text-center" style="color:#bdfffd; font-size:24px;"><b>Requesters</b></p>
                         {% for post in post_list %}
@@ -28,6 +32,8 @@
                         {% endfor %}
 					</div>
 				</div>
+
+
 			<div class="col" style="background-color:#343a40;border-radius: 25px; padding-top:50px">
 				<iframe
 					width="600"
@@ -52,7 +58,7 @@
 						</div>
 						<div class="modal-body">
 							<form action="/new/" method="POST">
-								{% csrf_token %} 
+								{% csrf_token %}
 
 								<div class="form-group">
 									<label for="title-name" class="form-control-label">Title:</label>
@@ -83,14 +89,14 @@
 									<input type="checkbox" name="requester" class="form-control" id="request-name">
 								</div>
 								<div class="modal-footer">
-						
+
 									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 									<button type="Submit" class="btn btn-primary">Make request</button>
-						
+
 								</div>
 							</form>
 						</div>
-						
+
 					</div>
 				</div>
 			</div>
