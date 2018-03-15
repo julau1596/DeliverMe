@@ -15,14 +15,19 @@
 
 
 <div>
-    <p class="" style="padding-left:20px;color:#bdfffd; font-size:24px;"><b>Requesters</b></p>
-				<div class="col" style="border-radius: 25px; border: 1px solid;overflow-x:hidden;overflow-y:scroll; height:650px;width:99%; background-color:#343a40;">
+    <div>
+    <p class="" style="padding-left:20px;color:#bdfffd; font-size:24px;"><b>Requesters</b> </p>
+    <a data-toggle="modal" data-target="#addmod"><button style="color:#343a40; background-color:#bdfffd; margin-left:20px;">Add a new item:</button>
+        <span class="sr-only">(current)</span>
+    </a>
+</div>
+				<div class="col" style="border-radius: 25px; border: 0px solid;overflow-x:hidden;overflow-y:scroll; height:550px;width:99%; background-color:#49525b;">
 					<div class="box">
 
                         {% for post in post_list %}
 
                             {% if post.requester == True %}
-                            <div class="box" style="color:#343a40; border-radius: 25px; border: 1px solid ; width:430px; background-color:#bdfffd; padding-left:30px;">
+                            <div class="box" style="color:#343a40; border-radius: 25px; border: 0px solid ; width:430px; background-color:#bdfffd; padding-left:30px;">
                                 <h5><b>Name: </b>{{ post.user }}</h5>
                                 <h5><b>Description: </b>{{ post.title }}</h5>
                                 <!--<h5>Location: {{ post.location }}</h5> Location/Destination not implemented into model yet! -->
@@ -35,7 +40,7 @@
 
 </div>
 
-			<div class="col" style="background-color:#343a40;border-radius: 25px; padding-top:50px">
+			<div class="col" style="background-color:#49525b;border-radius: 25px; padding-top:50px">
 				<iframe
 					width="600"
 					height="450"
@@ -44,9 +49,7 @@
 					&q=Santa Cruz,SC" allowfullscreen>
 				</iframe>
                 <br>
-				<a data-toggle="modal" data-target="#addmod"><button style="color:#343a40; border-radius: 25px; background-color:#bdfffd;">Add a new item:</button>
-					<span class="sr-only">(current)</span>
-				</a>
+
 			</div>
 			<div class="modal fade" id="addmod" role="dialog">
 			<br><br><br><br><br><br><br><br><br>
@@ -104,16 +107,20 @@
 			</div>
 
 <div>
-                <p class="" style="color:#bdfffd; font-size:24px;"><b>Deliverers</b></p>
+                <p class="" style="color:#bdfffd; font-size:24px;"><b>Deliverers</b>
+                </p>
+                <a data-toggle="modal" data-target="#addmod"><button style="color:#343a40; background-color:#bdfffd;">Add a new item:</button>
+                    <span class="sr-only">(current)</span>
+                </a>
 
-            				<div class="col" style="right:15px;border-radius: 25px; border: 1px solid;overflow-x:hidden;overflow-y:scroll;width:450px; height:650px; background-color:#343a40;">
+            				<div class="col" style="right:15px;border-radius: 25px; border: 0px solid;overflow-x:hidden;overflow-y:scroll;width:450px; height:550px; background-color:#49525b;">
 
                     			<div class="box">
 
                                     {% for post in post_list %}
 
                                         {% if post.requester == False %}
-                                        <div class="box" style="color:#343a40; border-radius: 25px; border: 1px solid ; background-color:#bdfffd; padding-left:20px;">
+                                        <div class="box" style="color:#343a40; border-radius: 25px; border: 0px solid ; background-color:#bdfffd; padding-left:20px;">
                                             <h5><b>Name: </b>{{ post.user }}</h5>
                                             <h5><b>Description: </b>{{ post.title }}</h5>
                                             <!--<h5>Location: {{ post.location }}</h5> Location/Destination not implemented into model yet! -->
@@ -130,5 +137,6 @@
 
 		{% endblock %}
 </div>
+
 	</body>
 </html>
