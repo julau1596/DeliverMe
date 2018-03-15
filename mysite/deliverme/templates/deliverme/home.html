@@ -85,8 +85,11 @@
 								<div class="modal-footer">
 						
 									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-									<button type="Submit" class="btn btn-primary">Make request</button>
-						
+									{% if user.is_authenticated %}
+										<button type="Submit" class="btn btn-primary">Make request</button>
+									{% else %}
+										<a href="/login/" class="btn btn-primary">Please Log In First</a>
+									{% endif %}
 								</div>
 							</form>
 						</div>
