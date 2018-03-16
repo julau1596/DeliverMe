@@ -35,7 +35,6 @@
                 <div class="modal-body">
                     <form action="/new/" method="POST">
                         {% csrf_token %}
-
                         <div class="form-group">
                             <label for="title-name" class="form-control-label">Title:</label>
                             <input type="text" name="title"  class="form-control" id="title-name">
@@ -62,6 +61,7 @@
                         </div>-->
                         <div class="form-group">
                             <label for="request-name" class="form-control-label">Requester:</label>
+                            <
                         </div>
                         <div class="modal-footer">
 
@@ -103,66 +103,6 @@
 					&q=Santa Cruz,SC" allowfullscreen>
 				</iframe>
                 <br>
-<<<<<<< HEAD
-				<a data-toggle="modal" data-target="#addmod"><button style="color:#343a40; border-radius: 25px; background-color:#bdfffd;">Add a new item:</button>
-					<span class="sr-only">(current)</span>
-				</a>
-			</div>
-			<div class="modal fade" id="addmod" role="dialog">
-			<br><br><br><br><br><br><br><br><br>
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="addmod">Add a new item</h5>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-						</div>
-						<div class="modal-body">
-							<form action="/new/" method="POST">
-								{% csrf_token %}
-
-								<div class="form-group">
-									<label for="title-name" class="form-control-label">Title:</label>
-									<input type="text" name="title"  class="form-control" id="title-name">
-								</div>
-								<!--<div class="form-group">
-									<label for="user-name" class="form-control-label">User:</label>
-									<input type="text" class="form-control" id="user-name">
-								</div>
-								<div class="form-group">
-									<label for="message-text" class="form-control-label">Message:</label>
-									<textarea class="form-control" id="message-text"></textarea>
-								</div>
-								<div class="form-group">
-									<label for="loc-name" class="form-control-label">Location:</label>
-									<input type="text" class="form-control" id="loc-name">
-								</div>-->
-								<div class="form-group">
-									<label for="dest-name" class="form-control-label">Destination:</label>
-									<input type="text"  name="dest"  class="form-control" id="dest-name">
-								</div>
-								<!--<div class="form-group">
-									<label for="time-name" class="form-control-label">Time:</label>
-									<input type="text" class="form-control" id="time-name">
-								</div>-->
-								<div class="form-group">
-									<label for="request-name" class="form-control-label">Requester:</label>
-									<input type="checkbox" name="requester" class="form-control" id="request-name">
-								</div>
-								<div class="modal-footer">
-
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-									{% if user.is_authenticated %}
-										<button type="Submit" class="btn btn-primary">Make Post</button>
-									{% else %}
-										<a href="/login/" class="btn btn-primary">Please Log In First</a>
-									{% endif %}
-								</div>
-							</form>
-						</div>
-=======
->>>>>>> just_test
 
 			</div>
 
