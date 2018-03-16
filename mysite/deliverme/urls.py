@@ -18,5 +18,4 @@ urlpatterns = [
     url(r'^chatlog/$', views.chatlog, name='chatlog'),
     url(r'^wallet/$', views.wallet, name='wallet'),
     url(r'^new/$', views.new, name = 'new'),
-	url(r'^newreq/$', views.new, name = 'newreq'),
 ]
