@@ -55,7 +55,18 @@ function initMap(){
     // Browser doesn't support Geolocation
     handleLocationError(false, infoWindow, map.getCenter());
   }
- 
+  //  var onChangeHandler = function() {
+     
+  //     geocode(directionsService, directionsDisplay);
+  //   };
+
+  // var locate = document.getElementById('submitbtn');
+  // locate.addEventListener('click', onChangeHandler);
+  // var item = document.getElementsByClassName('postitem');
+  // item.addEventListener('click', function() {
+  //   console.log(item);
+  //   geocode(directionsService, directionsDisplay);
+  // })
 
 }
 function getData(event) {
@@ -82,7 +93,8 @@ function geocode(directionsService, directionsDisplay, event){
   //e.preventDefault();
   //var location = document.getElementById('location-input').value;
 
-  var location =  event.children[0].innerHTML;
+  var location =  event.children[4].innerHTML;
+  console.log(location);
   axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
     params:{
       address:location,
@@ -94,16 +106,17 @@ function geocode(directionsService, directionsDisplay, event){
 
     
     //format address
-    var formAddress = response.data.results[0].formatted_address;
-    var formAddressOutput = `
-      <ul class="list-group">
-        <li class="list-group-item">${formAddress}</li>
-      </ul>
-    `;
+    // var formAddress = response.data.results[0].formatted_address;
+    // var formAddressOutput = `
+    //   <ul class="list-group">
+    //     <li class="list-group-item">${formAddress}</li>
+    //   </ul>
+    // `;
     
     //geometry determining lat long by search
     geoLat = response.data.results[0].geometry.location.lat;
     geoLng = response.data.results[0].geometry.location.lng;
+    console.log("LAT: " + geoLat);
     console.log("IM HERE");
     calculateAndDisplayRoute(directionsService, directionsDisplay);
 

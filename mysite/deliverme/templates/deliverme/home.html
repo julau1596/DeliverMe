@@ -116,9 +116,13 @@
                         {% if post.requester == False %}
                        
                         <div class="postitem" onclick="getData(this)" class="box" style="color:#343a40; border-radius: 25px; border: 1px solid ; width:430px; background-color:#bdfffd; padding-left:30px;">
-                            <h5 class="dest-item">{{ post.user }}</h5>
+                            <h5 >{{ post.user }}</h5>
+                        	<h5><strong>Title:</strong> </h5>
                             <h5>{{ post.title }}</h5>
+                            <h5><strong>Destination:</strong> </h5>
+                            <h5 class="dest-item">{{post.destination}}</h5>
                             <!--<h5>Location: {{ post.location }}</h5> Location/Destination not implemented into model yet! -->
+                            <h5><strong>Date:</strong> </h5>
                             <h5>{{ post.time|date:"m-d-Y" }}</h5>
                         </div>
                     	</section>

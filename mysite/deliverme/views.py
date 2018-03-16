@@ -51,6 +51,7 @@ def signup(request):
     return render(request, 'registration/signup.html', {'form': form})
 
 def new(request) :
+
     title = request.POST['title']
     dest = request.POST['dest']
     is_checked = "requester" in request.POST
@@ -61,7 +62,7 @@ def new(request) :
         requester = 0
     user = request.user.username
     now = datetime.datetime.now()
-    p = Post(title=title, user= dest, time = now, requester = requester)
+    p = Post(title=title, user= user, time = now, requester = requester, destination = dest)
     p.save()
     # conn = sqlite3.connect('../db.sqlite3')
     # c = conn.cursor()
