@@ -9,125 +9,25 @@
 
   <body>
   	{% block content %}
-
-
-			<div class="row justify-content-between;" style="">
-
-
-<div>
-    <div>
-    <p class="" style="padding-left:20px;color:#bdfffd; font-size:24px;"><b>Requesters</b> </p>
-    <a data-toggle="modal" data-target="#addreq"><button style="color:#343a40; background-color:#bdfffd; margin-left:20px;">Add a new request:</button>
-        <span class="sr-only">(current)</span>
-    </a>
-
-    </div>
-    <div class="modal fade" id="addreq" role="dialog">
-    <br><br><br><br><br><br><br><br><br>
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="addreq">Add a new item</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                </div>
-                <div class="modal-body">
-                    <form action="/new/" method="POST">
-                        {% csrf_token %}
-                        <div class="form-group">
-                            <label for="title-name" class="form-control-label">Title:</label>
-                            <input type="text" name="title"  class="form-control" id="title-name">
+	<div class="row justify-content-between;" style="">
+		<div>
+			<p class="" style="padding-left:20px;color:#bdfffd; font-size:24px;"><b>Requesters</b> </p>
+				<a data-toggle="modal" data-target="#addreq"><button style="color:#343a40; background-color:#bdfffd; margin-left:20px;">Add a new request:</button>
+				    <span class="sr-only">(current)</span>
+				</a>
+			<div class="modal fade" id="addreq" role="dialog">
+            <br><br><br><br><br><br><br><br><br>
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title" id="addmod">Add a new request</h2>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                         </div>
-                        <!--<div class="form-group">
-                            <label for="user-name" class="form-control-label">User:</label>
-                            <input type="text" class="form-control" id="user-name">
-                        </div>
-                        <div class="form-group">
-                            <label for="message-text" class="form-control-label">Message:</label>
-                            <textarea class="form-control" id="message-text"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="loc-name" class="form-control-label">Location:</label>
-                            <input type="text" class="form-control" id="loc-name">
-                        </div>-->
-                        <div class="form-group">
-                            <label for="dest-name" class="form-control-label">Destination:</label>
-                            <input type="text"  name="dest"  class="form-control" id="dest-name">
-                        </div>
-                        <!--<div class="form-group">
-                            <label for="time-name" class="form-control-label">Time:</label>
-                            <input type="text" class="form-control" id="time-name">
-                        </div>-->
-                        <div class="form-group">
-                            <label for="request-name" class="form-control-label">Requester:</label>
-							<input type="checkbox" checked>
-                            
-                        </div>
-                        <div class="modal-footer">
-
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-								<button type="Submit" class="btn btn-primary">Make request</button>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </div>
-				<div class="col" style="border-radius: 25px; border: 0px solid;overflow-x:hidden;overflow-y:scroll; height:550px;width:99%; background-color:#49525b; margin_bottom:30px">
-					<div class="box">
-
-                        {% for post in post_list %}
-
-                            {% if post.requester == True %}
-                            <div class="box" style="color:#343a40; border-radius: 25px; border: 0px solid ; width:430px; background-color:#bdfffd; padding-left:30px;">
-                                <h5><b>Name: </b>{{ post.user }}</h5>
-                                <h5><b>Description: </b>{{ post.title }}</h5>
-                                <!--<h5>Location: {{ post.location }}</h5> Location/Destination not implemented into model yet! -->
-                                <h5><b>Posted: </b>{{ post.time|date:"m-d-Y" }}</h5>
-                            </div>
-                            {% endif %}
-                        {% endfor %}
-					</div>
-				</div>
-
-</div>
-
-			<div class="col" style="background-color:#49525b;border-radius: 25px; padding-top:50px; margin_bottom:30px">
-				<iframe
-					width="600"
-					height="450"
-					frameborder="0" style="border:0"
-					src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAjIs-3O8NfJywAyNXhMprz0VbX6kq7Feg
-					&q=Santa Cruz,SC" allowfullscreen>
-				</iframe>
-                <br>
-
-			</div>
-
-
-<div>
-                <p class="" style="color:#bdfffd; font-size:24px;"><b>Deliverers</b>
-                </p>
-                <a data-toggle="modal" data-target="#adddev"><button style="color:#343a40; background-color:#bdfffd;">Add a new delivery:</button>
-                    <span class="sr-only">(current)</span>
-                </a>
-                <div class="modal fade" id="adddev" role="dialog">
-                <br><br><br><br><br><br><br><br><br>
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="addmod">Add a new item</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                            </div>
-                            <div class="modal-body">
-                                <form action="/new/" method="POST">
-                                    {% csrf_token %}
-
+                        <div class="modal-body">
+                            <form action="/new/" method="POST">
+                                {% csrf_token %}
                                     <div class="form-group">
                                         <label for="title-name" class="form-control-label">Title:</label>
                                         <input type="text" name="title"  class="form-control" id="title-name">
@@ -153,8 +53,8 @@
                                         <input type="text" class="form-control" id="time-name">
                                     </div>-->
                                     <div class="form-group">
-                                        <label for="request-name" class="form-control-label">Deliverers:</label>
-
+                                        <label for="request-name" class="form-control-label"></label>
+										<input type="checkbox" name="requester"  id="request-name" checked  hidden>
                                     </div>
                                     <div class="modal-footer">
 
@@ -162,36 +62,110 @@
                                         <button type="Submit" class="btn btn-primary">Make request</button>
 
                                     </div>
-                                </form>
-                            </div>
-
+                            </form>
                         </div>
                     </div>
                 </div>
-            				<div class="col" style="right:15px;border-radius: 25px; border: 0px solid;overflow-x:hidden;overflow-y:scroll;width:450px; height:550px; background-color:#49525b; margin_bottom:30px">
+            </div>
+		
+		<div class="col" style="border-radius: 25px; border: 0px solid;overflow-x:hidden;overflow-y:scroll; height:550px;width:99%; background-color:#49525b; margin_bottom:30px">
+            <div class="box">
+                {% for post in post_list %}
+                {% if post.requester == True %}
+                <div class="box" style="color:#343a40; border-radius: 25px; border: 0px solid ; background-color:#bdfffd; padding-left:20px;">
+                    <h5><b>Name: </b>{{ post.user }}</h5>
+                    <h5><b>Description: </b>{{ post.title }}</h5>
+                    <!--<h5>Location: {{ post.location }}</h5> Location/Destination not implemented into model yet! -->
+                    <h5><b>Posted: </b>{{ post.time|date:"m-d-Y" }}</h5>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+		</div>
+		<div class="col" style="background-color:#49525b;border-radius: 25px; padding-top:50px; margin_bottom:30px">
+			<iframe
+				width="600"
+				height="450"
+				frameborder="0" style="border:0"
+				src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAjIs-3O8NfJywAyNXhMprz0VbX6kq7Feg
+				&q=Santa Cruz,SC" allowfullscreen>
+			</iframe>
+            <br>
+		</div>
+		<div>
+            <p class="" style="color:#bdfffd; font-size:24px;"><b>Deliverers</b></p>
+            <a data-toggle="modal" data-target="#adddev"><button style="color:#343a40; background-color:#bdfffd;">Add a new delivery:</button>
+                <span class="sr-only">(current)</span>
+            </a>
+            <div class="modal fade" id="adddev" role="dialog">
+            <br><br><br><br><br><br><br><br><br>
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title" id="addmod">Add a new delivery</h2>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="/new/" method="POST">
+                                {% csrf_token %}
+                                    <div class="form-group">
+                                        <label for="title-name" class="form-control-label">Title:</label>
+                                        <input type="text" name="title"  class="form-control" id="title-name">
+                                    </div>
+                                    <!--<div class="form-group">
+                                        <label for="user-name" class="form-control-label">User:</label>
+                                        <input type="text" class="form-control" id="user-name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message-text" class="form-control-label">Message:</label>
+                                        <textarea class="form-control" id="message-text"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="loc-name" class="form-control-label">Location:</label>
+                                        <input type="text" class="form-control" id="loc-name">
+                                    </div>-->
+                                    <div class="form-group">
+                                        <label for="dest-name" class="form-control-label">Destination:</label>
+                                        <input type="text"  name="dest"  class="form-control" id="dest-name">
+                                    </div>
+                                    <!--<div class="form-group">
+                                        <label for="time-name" class="form-control-label">Time:</label>
+                                        <input type="text" class="form-control" id="time-name">
+                                    </div>-->
+                                    <div class="form-group">
+                                        <label for="request-name" class="form-control-label"></label>
+										<input type="checkbox" checked disabled hidden>
+                                    </div>
+                                    <div class="modal-footer">
 
-                    			<div class="box">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="Submit" class="btn btn-primary">Make delivery</button>
 
-                                    {% for post in post_list %}
-
-                                        {% if post.requester == False %}
-                                        <div class="box" style="color:#343a40; border-radius: 25px; border: 0px solid ; background-color:#bdfffd; padding-left:20px;">
-                                            <h5><b>Name: </b>{{ post.user }}</h5>
-                                            <h5><b>Description: </b>{{ post.title }}</h5>
-                                            <!--<h5>Location: {{ post.location }}</h5> Location/Destination not implemented into model yet! -->
-                                            <h5><b>Posted: </b>{{ post.time|date:"m-d-Y" }}</h5>
-                                        </div>
-                                        {% endif %}
-                                    {% endfor %}
-                                  </div>
-            					</div>
-            				</div>
-
-
-
-
+                                    </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col" style="right:15px;border-radius: 25px; border: 0px solid;overflow-x:hidden;overflow-y:scroll;width:450px; height:550px; background-color:#49525b; margin_bottom:30px">
+                <div class="box">
+                    {% for post in post_list %}
+                    {% if post.requester == False %}
+                    <div class="box" style="color:#343a40; border-radius: 25px; border: 0px solid ; background-color:#bdfffd; padding-left:20px;">
+                        <h5><b>Name: </b>{{ post.user }}</h5>
+                        <h5><b>Description: </b>{{ post.title }}</h5>
+                        <!--<h5>Location: {{ post.location }}</h5> Location/Destination not implemented into model yet! -->
+                        <h5><b>Posted: </b>{{ post.time|date:"m-d-Y" }}</h5>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
 		{% endblock %}
-</div>
-
+    </div>
 	</body>
 </html>
