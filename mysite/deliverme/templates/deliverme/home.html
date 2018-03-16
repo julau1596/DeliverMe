@@ -12,9 +12,12 @@
 	<div class="row justify-content-between;" style="">
 		<div>
 			<p class="" style="padding-left:20px;color:#bdfffd; font-size:24px;"><b>Requesters</b> </p>
+            {% if user.is_authenticated %}
 				<a data-toggle="modal" data-target="#addreq"><button style="color:#343a40; background-color:#bdfffd; margin-left:20px;">Add a new request:</button>
 				    <span class="sr-only">(current)</span>
 				</a>
+                {% else %}
+            {% endif %}
 			<div class="modal fade" id="addreq" role="dialog">
             <br><br><br><br><br><br><br><br><br>
                 <div class="modal-dialog">
@@ -95,9 +98,12 @@
 		</div>
 		<div>
             <p class="" style="color:#bdfffd; font-size:24px;"><b>Deliverers</b></p>
+            {% if user.is_authenticated %}
             <a data-toggle="modal" data-target="#adddev"><button style="color:#343a40; background-color:#bdfffd;">Add a new delivery:</button>
                 <span class="sr-only">(current)</span>
             </a>
+            {% else %}
+            {% endif %}
             <div class="modal fade" id="adddev" role="dialog">
             <br><br><br><br><br><br><br><br><br>
                 <div class="modal-dialog">
