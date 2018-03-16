@@ -4,7 +4,14 @@
   <head>
   	{% block title %}
     	<title>Home</title>
+    	<style>
+	    #map{
+	      height: 500px;
+	      width: 450px;
+	    }
+  	</style>
     {% endblock %}
+
   </head>
 
   <body>
@@ -64,91 +71,101 @@
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                         <button type="Submit" class="btn btn-primary">Make request</button>
 
-                                    </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-		
-		<div class="col" style="border-radius: 25px; border: 0px solid;overflow-x:hidden;overflow-y:scroll; height:550px;width:450px; background-color:#49525b; margin_bottom:30px">
-            <div class="box">
-                {% for post in post_list %}
-                {% if post.requester == True %}
-                <div class="box" style="color:#343a40; border-radius: 25px; border: 0px solid ; background-color:#bdfffd; padding-left:20px;">
-                    <h5><b>Name: </b>{{ post.user }}</h5>
-                    <h5><b>Description: </b>{{ post.title }}</h5>
-                    <!--<h5>Location: {{ post.location }}</h5> Location/Destination not implemented into model yet! -->
-                    <h5><b>Posted: </b>{{ post.time|date:"m-d-Y" }}</h5>
-                </div>
-                {% endif %}
-                {% endfor %}
-            </div>
-        </div>
-		</div>
-		<div class="col" style="background-color:#49525b;border-radius: 25px; padding-top:50px; margin_bottom:30px">
-			<iframe
-				width="600"
-				height="450"
-				frameborder="0" style="border:0"
-				src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAjIs-3O8NfJywAyNXhMprz0VbX6kq7Feg
-				&q=Santa Cruz,SC" allowfullscreen>
-			</iframe>
-            <br>
-		</div>
-		<div>
-            <p class="" style="color:#bdfffd; font-size:24px;"><b>Deliverers</b></p>
-            {% if user.is_authenticated %}
-            <a data-toggle="modal" data-target="#adddev"><button style="color:#343a40; background-color:#bdfffd;">Add a new delivery:</button>
-                <span class="sr-only">(current)</span>
-            </a>
-            {% else %}
-            {% endif %}
-            <div class="modal fade" id="adddev" role="dialog">
-            <br><br><br><br><br><br><br><br><br>
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h2 class="modal-title" id="addmod">Add a new delivery</h2>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                        </div>
-                        <div class="modal-body">
-                            <form action="/new/" method="POST">
-                                {% csrf_token %}
-                                    <div class="form-group">
-                                        <label for="title-name" class="form-control-label">Title:</label>
-                                        <input type="text" name="title"  class="form-control" id="title-name">
-                                    </div>
-                                    <!--<div class="form-group">
-                                        <label for="user-name" class="form-control-label">User:</label>
-                                        <input type="text" class="form-control" id="user-name">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="message-text" class="form-control-label">Message:</label>
-                                        <textarea class="form-control" id="message-text"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="loc-name" class="form-control-label">Location:</label>
-                                        <input type="text" class="form-control" id="loc-name">
-                                    </div>-->
-                                    <div class="form-group">
-                                        <label for="dest-name" class="form-control-label">Destination:</label>
-                                        <input type="text"  name="dest"  class="form-control" id="dest-name">
-                                    </div>
-                                    <!--<div class="form-group">
-                                        <label for="time-name" class="form-control-label">Time:</label>
-                                        <input type="text" class="form-control" id="time-name">
-                                    </div>-->
-                                    <div class="form-group">
-                                        <label for="request-name" class="form-control-label"></label>
-										<input type="checkbox" checked disabled hidden>
-                                    </div>
-                                    <div class="modal-footer">
+			<div class="row justify-content-between;">
+				<div class="col" style="border-radius: 25px; border: 1px solid; width:430px; background-color:#343a40;">
+					<div class="box">
+                        <p class="text-center" style="color:#bdfffd; font-size:24px;"><b>Requesters</b></p>
+                        {% for post in post_list %}
 
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="Submit" class="btn btn-primary">Make delivery</button>
+                            {% if post.requester == True %}
+                            <div class="box" style="color:#343a40; border-radius: 25px; border: 1px solid ; width:430px; background-color:#bdfffd; padding-left:30px;">
+                                <h5>{{ post.user }}</h5>
+                                <h5>{{ post.title }}</h5>
+                                <!--<h5>Location: {{ post.location }}</h5> Location/Destination not implemented into model yet! -->
+                                <h5>{{ post.time|date:"m-d-Y" }}</h5>
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+					</div>
+				</div>
+			<div class="col" style="background-color:#343a40;border-radius: 25px; padding-top:50px">
+				<!-- <iframe
+					width="600"
+					height="450"
+					frameborder="0" style="border:0"
+					src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAjIs-3O8NfJywAyNXhMprz0VbX6kq7Feg
+					&q=Santa Cruz,SC" allowfullscreen>
+				</iframe> -->
+
+				<div id="map">
+
+    			</div>
+
+				<a data-toggle="modal" data-target="#addmod"><button style="color:#343a40; border-radius: 25px; background-color:#bdfffd;">Add a new item:</button>
+					<span class="sr-only">(current)</span>
+				</a>
+			</div>
+			<div class="modal fade" id="addmod" role="dialog">
+			<br><br><br><br><br><br><br><br><br>
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="addmod">Add a new item</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+						</div>
+						<div class="modal-body">
+							<form action="/new/" method="POST">
+								{% csrf_token %}
+
+								<div class="form-group">
+									<label for="title-name" class="form-control-label">Title:</label>
+									<input type="text" name="title"  class="form-control" id="title-name">
+								</div>
+								<!--<div class="form-group">
+									<label for="user-name" class="form-control-label">User:</label>
+									<input type="text" class="form-control" id="user-name">
+								</div>
+								<div class="form-group">
+									<label for="message-text" class="form-control-label">Message:</label>
+									<textarea class="form-control" id="message-text"></textarea>
+								</div>
+								<div class="form-group">
+									<label for="loc-name" class="form-control-label">Location:</label>
+									<input type="text" class="form-control" id="loc-name">
+								</div>-->
+								<div class="form-group">
+									<label for="dest-name" class="form-control-label">Destination:</label>
+									<input type="text" name="dest"  class="form-control" id="dest-name">
+								</div>
+								<!--<div class="form-group">
+									<label for="time-name" class="form-control-label">Time:</label>
+									<input type="text" class="form-control" id="time-name">
+								</div>-->
+								<div class="form-group">
+									<label for="request-name" class="form-control-label">Requester:</label>
+									<input type="checkbox" name="requester" class="form-control" id="request-name">
+								</div>
+								<div class="modal-footer">
+
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+									{% if user.is_authenticated %}
+										<button type="Submit" class="btn btn-primary" id="submitbtn">Make request</button>
+									{% else %}
+										<a href="/login/" class="btn btn-primary">Please Log In First</a>
+									{% endif %}
+								</div>
+							</form>
+						</div>
+
+					</div>
+				</div>
+			</div>
+				<div class="col" style="overflow:hidden;border-radius: 25px; border: 1px solid; background-color:#343a40; height:700px;">
+                    <p class="text-center" style="color:#bdfffd; font-size:24px;"><b>Deliverers</b></p>
+                    {% for post in post_list %}
+                        {% if post.requester == False %}
 
                                     </div>
                             </form>
@@ -173,5 +190,12 @@
         </div>
 		{% endblock %}
     </div>
+    {% load staticfiles %}
+    <script type="text/javascript" src="{% static 'js/map.js' %}"></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwHBCkQScFnDujic_D6AptYhY_UTVcWfY&callback=initMap">
+    </script>
+
+    {% endblock %}
 	</body>
 </html>
