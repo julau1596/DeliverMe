@@ -34,6 +34,7 @@ AUTH_USER_MODEL = 'deliverme.User'
 
 INSTALLED_APPS = [
     'deliverme',
+    'djangoChat',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

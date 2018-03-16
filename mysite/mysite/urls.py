@@ -20,4 +20,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('deliverme.urls')),
     url(r'^home', include('deliverme.urls')),
+    url(r'^chat/', include('djangoChat.urls')),
 ]
