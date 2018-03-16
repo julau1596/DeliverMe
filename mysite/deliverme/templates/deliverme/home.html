@@ -10,6 +10,7 @@
 	      width: 450px;
 	    }
   	</style>
+
     {% endblock %}
     
   </head>
@@ -113,13 +114,14 @@
                     <p class="text-center" style="color:#bdfffd; font-size:24px;"><b>Deliverers</b></p>
                     {% for post in post_list %}
                         {% if post.requester == False %}
-
-                        <div class="box" style="color:#343a40; border-radius: 25px; border: 1px solid ; width:430px; background-color:#bdfffd; padding-left:30px;">
-                            <h5>{{ post.user }}</h5>
+                       
+                        <div class="postitem" onclick="getData(this)" class="box" style="color:#343a40; border-radius: 25px; border: 1px solid ; width:430px; background-color:#bdfffd; padding-left:30px;">
+                            <h5 class="dest-item">{{ post.user }}</h5>
                             <h5>{{ post.title }}</h5>
                             <!--<h5>Location: {{ post.location }}</h5> Location/Destination not implemented into model yet! -->
                             <h5>{{ post.time|date:"m-d-Y" }}</h5>
                         </div>
+                    	</section>
                         {% endif %}
                     {% endfor %}
 					<br><br>
@@ -137,12 +139,13 @@
 				</div>
 				</div>
 		{% load staticfiles %}
-  		<script type="text/javascript" src="{% static 'js/map.js' %}"></script>
-  		<script async defer
-    	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwHBCkQScFnDujic_D6AptYhY_UTVcWfY&callback=initMap">
-  		</script>
-
-		{% endblock %}
-		 
+  		  <script type="text/javascript" src="{% static 'js/map.js' %}"></script>
+		  <script async defer
+		    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwHBCkQScFnDujic_D6AptYhY_UTVcWfY&callback=initMap">
+		  </script>
+		  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+				 
 	</body>
 </html>
+{% endblock %}
+

@@ -3,7 +3,8 @@ var currentLng = -122.4194;
 var geoLat;
 var geoLng; 
 var location; 
-
+var directionsService;
+var directionsDisplay
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
   infoWindow.setContent(browserHasGeolocation ?
@@ -15,9 +16,10 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 //map and markers
 function initMap(){
   //default location
-  var directionsService = new google.maps.DirectionsService;
+
+  directionsService = new google.maps.DirectionsService;
     //returns an efficient path
-  var directionsDisplay = new google.maps.DirectionsRenderer;
+  directionsDisplay = new google.maps.DirectionsRenderer;
   var defaultLocation = {
     zoom: 11,
     center: {lat: 37.7749, lng: -122.4194}
@@ -53,14 +55,13 @@ function initMap(){
     // Browser doesn't support Geolocation
     handleLocationError(false, infoWindow, map.getCenter());
   }
-   var onChangeHandler = function() {
-      location = document.getElementById('dest-name').value;
-      geocode(directionsService, directionsDisplay);
-    };
+ 
 
-  var locate = document.getElementById('submitbtn');
-  locate.addEventListener('click', onChangeHandler);
-
+}
+function getData(event) {
+  //location = event.children[0].innerHTML;
+  geocode(directionsService, directionsDisplay,event);
+  //console.log(event.closest('H5.dest-item'));
 }
  function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     console.log("LAT: " + geoLat);
@@ -77,10 +78,11 @@ function initMap(){
       }
     });
   }
-function geocode(directionsService, directionsDisplay){
+function geocode(directionsService, directionsDisplay, event){
   //e.preventDefault();
-
   //var location = document.getElementById('location-input').value;
+
+  var location =  event.children[0].innerHTML;
   axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
     params:{
       address:location,

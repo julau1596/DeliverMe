@@ -61,7 +61,7 @@ def new(request) :
         requester = 0
     user = request.user.username
     now = datetime.datetime.now()
-    p = Post(title=title, user= user, time = now, requester = requester)
+    p = Post(title=title, user= dest, time = now, requester = requester)
     p.save()
     # conn = sqlite3.connect('../db.sqlite3')
     # c = conn.cursor()
