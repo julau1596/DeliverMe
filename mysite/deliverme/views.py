@@ -68,3 +68,6 @@ def new(request) :
     # c.execute('INSERT INTO deliverme_post values(?,?,?,?)', (title,user,now,requester))
     # conn.commit()
     return redirect("/")
+
+def map(request):
+    return render(request,'deliverme/map.html');
