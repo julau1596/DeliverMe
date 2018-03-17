@@ -7,7 +7,7 @@
 		    	<style>
 	    #map{
 	      height: 500px;
-	      width: 700px;
+	      width: 98%;
 	    }
   	</style>
     {% endblock %}
@@ -162,7 +162,8 @@
                         <div class="postitem" onclick="getData(this)" class="box" style="color:#343a40; border-radius: 25px; border: 1px solid ; width:430px; background-color:#bdfffd; padding-left:30px;">
                             <h5 ><b>Name: </b>{{ post.user }}</h5>
                             <h5><strong>Title: </strong>{{ post.title }}</h5>
-                            <h5 class="dest-item"><strong>Destination:</strong> {{ post.destination }}</h5>
+                            <h5><strong>Destination:</strong></h5>
+                            <h5 class="dest-item">{{ post.destination }}</h5>
                             <!--<h5>Location: {{ post.location }}</h5> Location/Destination not implemented into model yet! -->
                             <h5><strong>Date: </strong>{{ post.time|date:"m-d-Y" }}</h5>
                         </div>
