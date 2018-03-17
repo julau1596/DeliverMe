@@ -54,6 +54,7 @@ def new(request) :
 
     title = request.POST['title']
     dest = request.POST['dest']
+    
     is_checked = "requester" in request.POST
     requester = 0
     if(is_checked): 
