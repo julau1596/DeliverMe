@@ -4,12 +4,18 @@
   <head>
   	{% block title %}
     	<title>Home</title>
+		    	<style>
+	    #map{
+	      height: 500px;
+	      width: 450px;
+	    }
+  	</style>
     {% endblock %}
   </head>
 
   <body>
   	{% block content %}
-	<div class="row justify-content-between;" style="">
+	<div class="row justify-content-between;">
 		<div>
 			<p class="" style="padding-left:20px;color:#bdfffd; font-size:24px;"><b>Requesters</b> </p>
             {% if user.is_authenticated %}
@@ -87,14 +93,7 @@
         </div>
 		</div>
 		<div class="col" style="background-color:#49525b;border-radius: 25px; padding-top:50px; margin_bottom:30px">
-			<iframe
-				width="600"
-				height="450"
-				frameborder="0" style="border:0"
-				src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAjIs-3O8NfJywAyNXhMprz0VbX6kq7Feg
-				&q=Santa Cruz,SC" allowfullscreen>
-			</iframe>
-            <br>
+			<div id="map">
 		</div>
 		<div>
             <p class="" style="color:#bdfffd; font-size:24px;"><b>Deliverers</b></p>
@@ -160,17 +159,28 @@
                 <div class="box">
                     {% for post in post_list %}
                     {% if post.requester == False %}
-                    <div class="box" style="color:#343a40; border-radius: 25px; border: 0px solid ; background-color:#bdfffd; padding-left:20px;">
-                        <h5><b>Name: </b>{{ post.user }}</h5>
-                        <h5><b>Description: </b>{{ post.title }}</h5>
-                        <!--<h5>Location: {{ post.location }}</h5> Location/Destination not implemented into model yet! -->
-                        <h5><b>Posted: </b>{{ post.time|date:"m-d-Y" }}</h5>
-                    </div>
+                        <div class="postitem" onclick="getData(this)" class="box" style="color:#343a40; border-radius: 25px; border: 1px solid ; width:430px; background-color:#bdfffd; padding-left:30px;">
+                            <h5 >{{ post.user }}</h5>
+                        	<h5><strong>Title:</strong> </h5>
+                            <h5>{{ post.title }}</h5>
+                            <h5><strong>Destination:</strong> </h5>
+                            <h5 class="dest-item">{{ post.destination }}</h5>
+                            <!--<h5>Location: {{ post.location }}</h5> Location/Destination not implemented into model yet! -->
+                            <h5><strong>Date:</strong> </h5>
+                            <h5>{{ post.time|date:"m-d-Y" }}</h5>
+                        </div>
                     {% endif %}
                     {% endfor %}
                 </div>
             </div>
         </div>
+		</div>
+		{% load staticfiles %}
+  		  <script type="text/javascript" src="{% static 'js/map.js' %}"></script>
+		  <script async defer
+		    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwHBCkQScFnDujic_D6AptYhY_UTVcWfY&callback=initMap">
+		  </script>
+		  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 		{% endblock %}
     </div>
 	</body>
