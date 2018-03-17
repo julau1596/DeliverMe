@@ -82,7 +82,7 @@ function geocode(directionsService, directionsDisplay, event){
   //e.preventDefault();
   //var location = document.getElementById('location-input').value;
 
-  var location =  event.children[0].innerHTML;
+  var location =  event.children[4].innerHTML;
   axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
     params:{
       address:location,

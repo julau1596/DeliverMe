@@ -7,7 +7,7 @@
 		    	<style>
 	    #map{
 	      height: 500px;
-	      width: 450px;
+	      width: 700px;
 	    }
   	</style>
     {% endblock %}
@@ -93,7 +93,7 @@
         </div>
 		</div>
 		<div class="col" style="background-color:#49525b;border-radius: 25px; padding-top:50px; margin_bottom:30px">
-			<div id="map">
+			<div id="map"></div>
 		</div>
 		<div>
             <p class="" style="color:#bdfffd; font-size:24px;"><b>Deliverers</b></p>
@@ -155,19 +155,16 @@
                     </div>
                 </div>
             </div>
-            <div class="col" style="right:15px;border-radius: 25px; border: 0px solid;overflow-x:hidden;overflow-y:scroll;width:450px; height:550px; background-color:#49525b; margin_bottom:30px">
+            <div class="col" style="right:25px;border-radius: 25px; border: 0px solid;overflow-x:hidden;overflow-y:scroll;width:400px; height:550px; background-color:#49525b; margin_bottom:30px">
                 <div class="box">
                     {% for post in post_list %}
                     {% if post.requester == False %}
                         <div class="postitem" onclick="getData(this)" class="box" style="color:#343a40; border-radius: 25px; border: 1px solid ; width:430px; background-color:#bdfffd; padding-left:30px;">
-                            <h5 >{{ post.user }}</h5>
-                        	<h5><strong>Title:</strong> </h5>
-                            <h5>{{ post.title }}</h5>
-                            <h5><strong>Destination:</strong> </h5>
-                            <h5 class="dest-item">{{ post.destination }}</h5>
+                            <h5 ><b>Name: </b>{{ post.user }}</h5>
+                            <h5><strong>Title: </strong>{{ post.title }}</h5>
+                            <h5 class="dest-item"><strong>Destination:</strong> {{ post.destination }}</h5>
                             <!--<h5>Location: {{ post.location }}</h5> Location/Destination not implemented into model yet! -->
-                            <h5><strong>Date:</strong> </h5>
-                            <h5>{{ post.time|date:"m-d-Y" }}</h5>
+                            <h5><strong>Date: </strong>{{ post.time|date:"m-d-Y" }}</h5>
                         </div>
                     {% endif %}
                     {% endfor %}
