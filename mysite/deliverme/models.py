@@ -8,8 +8,7 @@ class Post(models.Model):
     user =  models.TextField()
     locLat = models.FloatField(blank=True, null=True)
     locLon = models.FloatField(blank=True, null=True)
-    destLat = models.FloatField(blank=True, null=True)
-    destLon = models.FloatField(blank=True, null=True)
+    destination = models.TextField(null=True)
     time = models.DateTimeField() #%Y-%m-%d %H:%M:%S
     requester = models.NullBooleanField() #True if requester, false if deliverer, allowing null for testing currently
 
