@@ -43,10 +43,10 @@ def signup(request):
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
-
+            
             login(request, user)
             return redirect('/')
-    else:
+    else:   
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form})
 
@@ -55,16 +55,19 @@ def new(request) :
     dest = request.POST['dest']
     is_checked = "requester" in request.POST
     requester = 0
-    if(is_checked):
+    if(is_checked): 
         requester = 1
     else:
         requester = 0
     user = request.user.username
     now = datetime.datetime.now()
-    p = Post(title=title, user= user, time = now, requester = requester)
+    p = Post(title=title, user= dest, time = now, requester = requester)
     p.save()
     # conn = sqlite3.connect('../db.sqlite3')
     # c = conn.cursor()
     # c.execute('INSERT INTO deliverme_post values(?,?,?,?)', (title,user,now,requester))
     # conn.commit()
     return redirect("/")
+
+def map(request):
+    return render(request,'deliverme/map.html');
